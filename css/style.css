@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Open Sans';
+    font-weight: lighter;
+    color: #ffffff;
+    background-color: #000;
+}
+
+
+/* HEADER-STYLE */
+.header {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+    box-sizing: border-box;
+}
+
+
+.header__selectbox {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header__text {
+    display: block;
+    margin: 20px 0;
+}
+
+.header__category {
+    background-color: #fff;
+    color: #000;
+}
+
+/* ARTICLES */
+.box {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    width: 100%;
+}
+
+.article_box {
+    height: 300px;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+
+/* ARTICLE-HOVER-DECORATION */
+
+.article__text{
+	width:			100%;
+	height:			100%;
+	position:		absolute;
+	top:			0;
+	left:			0;
+	opacity:		0;	
+	background-color:	rgba(0,0,0,0.4);
+	-webkit-transition:	all 0.2s ease;
+	transition:		all 0.2s ease;
+}
+.article_box:hover .article__text{
+	opacity:		1;	
+	padding-top:		80px;
+}
+
+/* FOOTER */
+.footer {
+    color: #c2c2c2;
+    bottom: 0;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (min-width: 600px) {
+
+    .header {
+        flex-direction: row;
+    }
+    .box {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        width: 100%;
+    }
+    .header__text {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    .header__logo {
+        margin-right: 30px;
+    }
+
+    .article_box {
+        height: 300px;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+
+    .header {
+        justify-content: flex-start;
+    }
+    .header__logo {
+        margin-left: 50px;
+    }
+
+    .box {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .footer {
+        padding-left: 30px;
+        justify-content: flex-start;
+    }
+
+} 
