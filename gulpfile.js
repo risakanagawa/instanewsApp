@@ -8,6 +8,7 @@ var uglify = require("gulp-uglify"),
     sass = require("gulp-sass"),
     autoprefixer = require("gulp-autoprefixer"),
     cssnano = require("gulp-cssnano"),
+    prettyError = require("gulp-prettyerror"),
     rename = require("gulp-rename");
 
 
