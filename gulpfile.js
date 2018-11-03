@@ -30,6 +30,7 @@ gulp.task('load', function () {
 gulp.task("sass", function () {
     return gulp
         .src("./sass/style.scss")
+        .pipe(prettyError())
         .pipe(sass())
         .pipe(
             autoprefixer({
