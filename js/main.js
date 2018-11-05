@@ -11,50 +11,54 @@ $(function () {
         url: url
     })
         .done(function (data) {
-            console.log(data);
-            const results = data.results;
-            //Header opisions
-            const list = results.reduce((i, val) => (i.indexOf(val.section) !== -1) ? i : [...i, val.section], []);
-            // console.log(list);
-            $.each(list, function (j, key) {
-                $(".header__category").append('<option value=' + list[j].replace(" ", "") + '>' + list[j] + '</option>');
-                // console.log($.type(list[j]));
+            const articleInfo = data.results;
+            console.log(articleInfo)
+            //CREATE--FOR--OPTIONS
+            const optionList = articleInfo.reduce((i, val) => (i.indexOf(val.section) !== -1) ? i : [...i, val.section], []);
+            $.each(optionList, function (j) {
+                $(".header__category").append('<option value=' + optionList[j].replace(" ", "") + '>' + optionList[j] + '</option>');
             });
 
-            //change event
+            //CHANGE--EVENT
             $('[name="category"]').on("change", function () {
-                let val = $(this).val();
-                console.log(val);
+
+                let selectedOption = $(this).val();
                 $(".box").empty();
-                $.each(results, function (i, key) {
-                    let noSpace = key.section.replace(" ", "");
-                    if (val === noSpace) {
-                        if (key.multimedia.length !== 0) {
 
-                            //GET-ARTICLES
-                            var imageUrl = this.multimedia[4].url;
-                            console.log(imageUrl);
-                            $('<div class="article_box">')
-                                .css('background-image', 'url(' + imageUrl + ')')
-                                .append('<p class="article__text">' + key.abstract + '</p>')
-                                .appendTo(".box");
-
-                            // HEADER-HIDE-CSS
-                            var width = window.innerWidth;
-                            var smartphoneTabletWidth = 600;
-                            if (smartphoneTabletWidth <= width) {
-                                $(".header")
-                                    .css("height", "30vh")
-                                    .css("transition", "1s");
-                                $(".header__logo").css("width", "15vh");
-                            } 
-                        }
+                // GET--FIRST--TWELVE--ARTICLES
+                let thisCategoryArticles = articleInfo.filter(function (article) {
+                    var thisSection = article.section.replace(" ", "");
+                    if (selectedOption == thisSection && article.multimedia.length !== 0) {
+                        return article;
                     }
                 });
+                let twelveArticles = thisCategoryArticles.slice(0, 13);
+
+
+                $.each(twelveArticles, function (key) {
+
+
+                    var imageUrl = this.multimedia[4].url;
+                    var newsAbstract = this.abstract;
+
+                    //CREATE--ARTICLE--BOX
+                    $('<div class="article_box">')
+                        .css('background-image', 'url(' + imageUrl + ')')
+                        .append('<p class="article__text">' + newsAbstract + '</p>')
+                        .appendTo(".box");
+
+                    // HEADER--MOVE--CSS
+                    $(".header")
+                        .css("height", "20vh")
+                        .css("transition", "1s");
+                    $(".header__logo").css("width", "15vh");
+
+
+                });
+
             });
         })
         .fail(function () {
-            $(".header").append("Sorry there was an error.");
+            $(".box").append("Sorry there was an error.");
         });
-
 });

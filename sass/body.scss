@@ -1,3 +1,9 @@
+/*---------------------------------------------
+
+ALL-STYLES
+
+---------------------------------------------*/
+
 * {
     box-sizing: border-box;
 }
@@ -47,6 +53,15 @@ body {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     width: 100%;
+}
+
+.loading__img {
+    display: none;
+}
+
+.loading__img img{
+    max-width: 100%;
+    width: 150px;
 }
 
 .article_box {
