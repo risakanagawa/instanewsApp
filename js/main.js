@@ -21,9 +21,10 @@ $(function () {
             });
 
             //CHANGE--EVENT
-            $('[name="category"]').on('change', function () {
+            $('#options').on('change', function () {
 
                 let selectedOption = $(this).val();
+                console.log(this);
                 $('.article-section').empty();
 
                 // GET--FIRST--TWELVE--ARTICLES
