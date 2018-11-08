@@ -1,0 +1,36 @@
+
+/*---------------------------------------------------
+
+mixins
+
+--------------------------------------------------- */
+
+$tablet-width: 600px;
+$desktop-width: 768px;
+
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@mixin grid($colums: 1fr) {
+    display: grid;
+    grid-template-columns: $colums;
+    grid-template-rows: auto;
+    width: 100%;
+}
+
+// @mixin tablet {
+//     @media only screen and (min-width: $tablet-width) {
+//       @content;
+//     }
+//   }
+
+// @mixin desktop {
+//     @media only screen and (min-width: $desktop-width) {
+//       @content;
+//     }
+//   }
