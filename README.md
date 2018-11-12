@@ -4,9 +4,9 @@
 instanewsApp is an application which shows topstories from NYtimes API.
 index.html will help you open the project.
 
-![alt text](images/demo/desktop.png "Desktop screen shot)
-![alt text](images/demo/example.png "Desktop demo)
-![alt text](images/demo/smartphone.png "Desktop screen shot)
+![desktop screenshot](https://user-images.githubusercontent.com/30381475/48379189-237aef00-e688-11e8-8e6b-d487a2981849.png "Desktop screen shot)
+![desktop demo](https://user-images.githubusercontent.com/30381475/48379196-2970d000-e688-11e8-941c-8dfb0de97d89.png "Desktop demo)
+![mobile demo]("https://user-images.githubusercontent.com/30381475/48379199-2c6bc080-e688-11e8-95cf-836167d3f1a2.png "mobile screen shot)
 
 e.g. technologies used, personal learnings, installation instructions, etc.
 
