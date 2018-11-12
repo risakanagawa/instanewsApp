@@ -1,6 +1,6 @@
 $(function () {
-    let url = 'https://api.nytimes.com/svc/topstories/v2/home.json';
-    url += '?' + $.param({
+    let topStoriesUrl = 'https://api.nytimes.com/svc/topstories/v2/home.json';
+    topStoriesUrl += '?' + $.param({
         'api-key': 'c525f45dacf9413ca3c4cb50cdeff81f'
     });
 
@@ -9,52 +9,52 @@ $(function () {
     $.ajax({
         type: 'GET',
         dataType: 'json',
-        url: url
+        url: topStoriesUrl
     })
         .done(function (data) {
             $('.loading__img').hide();
-            const articleInfo = data.results;
-            //CREATE--FOR--OPTIONS
-            const optionList = articleInfo.reduce((i, val) => (i.indexOf(val.section) !== -1) ? i : [...i, val.section], []);
-            $.each(optionList, function (i) {
-                $('.header__category').append('<option value=' + optionList[i].replace(' ', '') + '>' + optionList[i] + '</option>');
+            const topStories = data.results;
+
+            const categories = topStories.reduce((i, val) => (i.indexOf(val.section) !== -1) ? i : [...i, val.section], []);
+            $.each(categories, function (i) {
+                $('.header__category').append('<option value=' + categories[i].replace(' ', '') + '>' + categories[i] + '</option>');
+            });
+            $('.header__category').select2({
+                width: '200px',
+                placeholder: 'Please Select',
+                allowClear: true
             });
 
-            //CHANGE--EVENT
             $('#options').on('change', function () {
 
-                let selectedOption = $(this).val();
-                console.log(this);
+                const selectedCategory = $(this).val();
                 $('.article-section').empty();
 
-                // GET--FIRST--TWELVE--ARTICLES
-                let CategoryArticles = articleInfo.filter(function (article) {
-                    let thisSection = article.section.replace(' ', '');
-                    if (selectedOption === thisSection && article.multimedia.length !== 0) {
+                const articlesByCategory = topStories.filter(function (article) {
+                    const thisCategory = article.section.replace(' ', '');
+                    if (selectedCategory === thisCategory && article.multimedia.length !== 0) {
                         return article;
                     }
                 });
-                let twelveArticles = CategoryArticles.slice(0, 12);
+                const firstTwelveArticlesByCategory = articlesByCategory.slice(0, 12);
 
+                $.each(firstTwelveArticlesByCategory, function () {
+                    const imageUrl = this.multimedia[4].url;
+                    const newsAbstract = this.abstract;
 
-                $.each(twelveArticles, function () {
-                    let imageUrl = this.multimedia[4].url;
-                    let newsAbstract = this.abstract;
-
-                    //CREATE--ARTICLE--BOX
+                    // Create an article box
                     $('<div class="article_box">')
                         .css('background-image', 'url(' + imageUrl + ')')
                         .append('<p class="article__text">' + newsAbstract + '</p>')
                         .appendTo('.article-section');
 
-                    // HEADER--MOVE--CSS
+                    // Move header
                     $('.header')
                         .css('height', '200px')
                         .css('transition', '1s');
                     $('.header__logo')
                         .css('width', '15vh');
                 });
-
             });
         })
         .fail(function () {
