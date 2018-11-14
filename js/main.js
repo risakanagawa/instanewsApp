@@ -3,9 +3,7 @@ $(function () {
     topStoriesUrl += '?' + $.param({
         'api-key': 'c525f45dacf9413ca3c4cb50cdeff81f'
     });
-
-    $('.loading__img').show();
-
+    
     $.ajax({
         type: 'GET',
         dataType: 'json',
