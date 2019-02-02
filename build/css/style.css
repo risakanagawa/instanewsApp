@@ -121,6 +121,7 @@ body {
               flex-direction: row; } }
 
 .header__selectbox {
+  width: 300px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -187,6 +188,7 @@ body {
       margin-bottom: 10px; } }
 
 .header__category {
+  width: 200px;
   background-color: #fff;
   color: #000; }
 

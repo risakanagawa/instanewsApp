@@ -1,36 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Instanews App</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="build/css/style.min.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Instanews App</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="build/css/style.min.css">
-</head>
-
-<body>
-  <header class="header">
-    <img src="images/nyt-logo.svg" alt="logo" class="header__logo">
-    <div class="header__selectbox">
-      <span class="header__text">Choose a section :</span>
-      <select id="options" name="category" class="header__category">
-        <option>Sections...</option>
-      </select>
-    </div>
-  </header>
-  <article class="article-section">
-    <div class="loading__img">
-      <img src="images/ajax-loader.gif" alt="loading...">
-    </div>
-  </article>
-  <footer class="footer">
-    <span>©Copyright 2016 INSTANEWS</span>
-  </footer>
-  <script type="text/javascript" src="build/js/jquery.min.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-  <script type="text/javascript" src='build/js/main.min.js'></script>
-</body>
-
+  <body>
+    <header class="header">
+      <img src="images/nyt-logo.svg" alt="logo" class="header__logo" />
+      <div class="header__selectbox">
+        <span class="header__text">Choose a section :</span>
+        <select id="options" name="category" class="header__category">
+          <option value="none">Select...</option>
+          <option value="politics">U.S.</option>
+          <option value="world">World</option>
+          <option value="national">National</option>
+          <option value="upshot">Upshot</option>
+          <option value="nyregion">NY Region</option>
+          <option value="business">Business</option>
+          <option value="technology">Technology</option>
+          <option value="science">Science</option>
+          <option value="health">Health</option>
+          <option value="opinion">Opinion</option>
+          <option value="sports">Sports</option>
+          <option value="arts">Arts</option>
+          <option value="books">Books</option>
+          <option value="movies">Movies</option>
+          <option value="theater">Theather</option>
+          <option value="sundayreview">Sunday Review</option>
+          <option value="fashion">Fashion</option>
+          <option value="tmagazine">Tmagazine</option>
+          <option value="food">Food</option>
+          <option value="travel">Travel</option>
+          <option value="magazine">Magazine</option>
+          <option value="realestate">Real Estate</option>
+          <option value="automobiles">Auto Mobiles</option>
+          <option value="obituaries">Obituaries</option>
+          <option value="insider">Insider</option>
+        </select>
+      </div>
+    </header>
+    <article class="article-section">
+      <div class="loading__img">
+        <img src="images/ajax-loader.gif" alt="loading..." />
+      </div>
+    </article>
+    <footer class="footer">
+      <span>©Copyright 2016 INSTANEWS</span>
+    </footer>
+    <script type="text/javascript" src="build/js/jquery.min.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script type="text/javascript" src="build/js/main.min.js"></script>
+  </body>
 </html>

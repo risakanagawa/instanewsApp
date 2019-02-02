@@ -32,6 +32,7 @@ body {
 }
 
 .header__selectbox {
+    width: 300px;
     @include flex(center, center, column);
     @include tablet {
         @include flex(center, flex-start, column);
@@ -65,6 +66,7 @@ body {
 }
 
 .header__category {
+    width: 200px;
     background-color: #fff;
     color: #000;
 }
