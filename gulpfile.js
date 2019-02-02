@@ -8,7 +8,8 @@ var terser = require("gulp-terser"),
     autoprefixer = require("gulp-autoprefixer"),
     cssnano = require("gulp-cssnano"),
     prettyError = require("gulp-prettyerror"),
-    rename = require("gulp-rename");
+    rename = require("gulp-rename"),
+    uglify = require('gulp-uglify');
 
 
 gulp.task("scripts", function () {
@@ -17,7 +18,7 @@ gulp.task("scripts", function () {
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(babel())
-        .pipe(terser()) 
+        .pipe(uglify()) 
         .pipe(rename({ extname: ".min.js" }))
         .pipe(gulp.dest("./build/js"));
 
